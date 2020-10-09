@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="ims.Form_ToAddController">
+   <children>
+      <TextField layoutX="188.0" layoutY="41.0" />
+      <TextField layoutX="188.0" layoutY="84.0" />
+      <TextField layoutX="188.0" layoutY="127.0" />
+      <TextField layoutX="188.0" layoutY="174.0" />
+      <TextField layoutX="196.0" layoutY="246.0" />
+      <TextField layoutX="196.0" layoutY="285.0" />
+      <TextField layoutX="199.0" layoutY="332.0" />
+      <TextField layoutX="196.0" layoutY="210.0" />
+      <Label layoutX="146.0" layoutY="41.0" prefHeight="37.0" prefWidth="46.0" text="id" />
+      <Label layoutX="132.0" layoutY="84.0" prefHeight="26.0" prefWidth="56.0" text="name" />
+      <Label layoutX="110.0" layoutY="122.0" prefHeight="37.0" prefWidth="73.0" text="description" />
+      <Label layoutX="149.0" layoutY="174.0" prefHeight="26.0" prefWidth="22.0" text="qty" />
+      <Label layoutX="74.0" layoutY="215.0" text="purchasing_price " />
+      <Label layoutX="111.0" layoutY="251.0" text=" retail_price" />
+      <Label layoutX="143.0" layoutY="285.0" prefHeight="26.0" prefWidth="56.0" text="Date" />
+      <Label layoutX="123.0" layoutY="332.0" prefHeight="26.0" prefWidth="53.0" text="OutletId" />
+      <Button layoutX="495.0" layoutY="358.0" mnemonicParsing="false" text="Save" />
+      <Label layoutX="211.0" layoutY="4.0" prefHeight="26.0" prefWidth="116.0" text="Add Invemtory" />
+   </children>
+</AnchorPane>
