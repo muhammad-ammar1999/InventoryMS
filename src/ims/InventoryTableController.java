@@ -51,6 +51,7 @@ public class InventoryTableController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         try {
+
             ObservableList<InventoryItem> oblist = InventoryItem.getAll();
 
             id.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().id.toString()));

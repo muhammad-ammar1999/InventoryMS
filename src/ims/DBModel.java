@@ -13,12 +13,11 @@ import javafx.collections.ObservableList;
  *
  * @author bilal
  * @param <T>
+ * T = Order
  */
 public interface DBModel<T> {
     ObservableList<T> getAll();
     T getOne(Long id);
     void deleteOne(Long id) throws SQLException;
-    void deleteAll();
     void updateOne(T item);
-    void updateMultiple(ArrayList<T> items);
 }
