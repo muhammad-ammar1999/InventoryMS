@@ -13,7 +13,7 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author bilal
+ * @author Ammar
  */
 public class InventoryItem {
 
@@ -34,7 +34,11 @@ public class InventoryItem {
         this.retail_price = retail_price;
         this.date = date;
     }
-    
+  public void addInventory(InventoryItem itemToAdd) {
+  String query = " insert into inventory (id, name, description, qty,purchasing_price,retail_price,date,outletid)"
+        + " values (itemToAdd.id, itemToAdd.name, itemToAdd.description, itemToAdd.qty, itemToAdd.purchasing_price, itemToAdd.retail_price, itemToAdd.date)";
+
+    }   
     /**
      * Gets all rows from inventory table
      * @return a list of object from class InventoryItem
@@ -45,7 +49,7 @@ public class InventoryItem {
         ObservableList<InventoryItem> oblist = FXCollections.observableArrayList();
         try {
             // connect with the database
-            Connection c = (Connection) DbConnection.connect();
+                 Connection c = (Connection) DbConnection.connect();
             String query = "SELECT * FROM inventory";
             
             // execute query on the database
@@ -75,5 +79,6 @@ public class InventoryItem {
         return oblist;
 
     }
-
+ 
 }
+ 
