@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,8 +27,8 @@ public class InventoryItem {
     Double purchasing_price;
     Double retail_price;
     String date;
-
-    InventoryItem(Long id, String name, String description, Long qty, Double purchasing_price, Double retail_price, String date) {
+Long outletid;
+    InventoryItem(Long id, String name, String description, Long qty, Double purchasing_price, Double retail_price, String date,Long outletid) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -35,7 +36,9 @@ public class InventoryItem {
         this.purchasing_price = purchasing_price;
         this.retail_price = retail_price;
         this.date = date;
+this.outletid=outletid;
     }
+ 
 
     InventoryItem(ResultSet rs) throws SQLException, ClassNotFoundException {
         this.id = rs.getLong("id");
@@ -90,15 +93,17 @@ public class InventoryItem {
     }
 
     static void updateOne(InventoryItem item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeQuery("UPDATE inventory WHERE id" + item.id + " SET name=" + item.name);
+      //  DbConnection.executeQuery("UPDATE inventory WHERE id" + item.id + " SET name=" + item.name);
     }
     
     static void addOne(InventoryItem item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeQuery("INSET INTO inventory WHERE");
+        DbConnection.executeUpdate(" insert into inventory (name,description,qty,purchasing_price,retail_price,date, outletId)"
+        + " values ('molfix','stage', 6,100.0,200.0, '2001',1)");
+
     }
     
     static void deleteOne(Long id) throws SQLException, ClassNotFoundException {
-        DbConnection.executeQuery("DELETE inventory WHERE");
+        DbConnection.executeQuery("DELETE inventory WHERE" );
     }
 
 }

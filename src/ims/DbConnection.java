@@ -17,9 +17,9 @@ import java.sql.SQLException;
 public class DbConnection {
 
     private static Connection conn;
-    private static String url = "jdbc:mysql://localhost:8889/ShopMS?zeroDateTimeBehavior=convertToNull"; //veritabanımın adı java
-    private static String user = "bilal";
-    private static String pass = "latitude";
+    private static String url = "jdbc:mysql://localhost:3306/ShopMS?zeroDateTimeBehavior=convertToNull"; //veritabanımın adı java
+    private static String user = "root";
+    private static String pass = "";
 
     public static Connection connect() throws SQLException {
         try {
@@ -45,5 +45,10 @@ public class DbConnection {
         Connection c = getConnection();
         ResultSet rs = c.createStatement().executeQuery(query);
         return rs;
+    }
+    public static int executeUpdate(String query) throws SQLException, ClassNotFoundException {
+        Connection c = getConnection();
+        int rowsAffected = c.createStatement().executeUpdate(query);
+        return rowsAffected;
     }
 }

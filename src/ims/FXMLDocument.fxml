@@ -77,7 +77,20 @@
                         </Tab>
                         <Tab text="Order">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TableView fx:id="ordertable" layoutX="103.0" layoutY="32.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                            <columns>
+                                                <TableColumn prefWidth="75.0" fx:id="oder_id" text="Id" />
+                                                <TableColumn prefWidth="75.0" fx:id="customer_name" text="customer name" />
+                                                <TableColumn prefWidth="75.0" fx:id="order_details" text="Order details" />
+                                                <TableColumn prefWidth="75.0" fx:id="order_total" text="totalprice" />
+                                                <TableColumn prefWidth="75.0" fx:id="order_quantity" text="qty" />
+                                                <TableColumn prefWidth="75.0" fx:id="order_date" text="Date" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
                             </content>
                         </Tab>
                         <Tab text="Expense">
