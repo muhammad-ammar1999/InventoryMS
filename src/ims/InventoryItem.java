@@ -27,7 +27,7 @@ public class InventoryItem {
     Double purchasing_price;
     Double retail_price;
     String date;
-Long outletid;
+ Long outletid;
     InventoryItem(Long id, String name, String description, Long qty, Double purchasing_price, Double retail_price, String date,Long outletid) {
         this.id = id;
         this.name = name;
@@ -48,6 +48,7 @@ this.outletid=outletid;
         this.purchasing_price = rs.getDouble("purchasing_price");
         this.retail_price = rs.getDouble("purchasing_price");
         this.date = rs.getString("date");
+       this.outletid = rs.getLong("outletid");
 
     }
 
@@ -90,7 +91,7 @@ this.outletid=outletid;
         } else {
             throw new NoSuchElementException();
         }
-    }
+    } 
 
     static void updateOne(InventoryItem item) throws SQLException, ClassNotFoundException {
       //  DbConnection.executeQuery("UPDATE inventory WHERE id" + item.id + " SET name=" + item.name);

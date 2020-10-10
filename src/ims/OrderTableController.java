@@ -26,6 +26,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -37,7 +39,7 @@ public class OrderTableController implements Initializable {
     private TableView<OrderItem> ordertable;
 
     @FXML
-    private TableColumn<OrderItem, String> oder_id;
+    private TableColumn<OrderItem, String> Orderid;
     @FXML
     private TableColumn<OrderItem, String> customer_name;
     @FXML
@@ -50,6 +52,29 @@ public class OrderTableController implements Initializable {
   
     @FXML
     private TableColumn<OrderItem, String> order_date;
+@FXML
+    private TableColumn<OrderItem, String> orderoutletid;
+@FXML
+    private Button AddOrder;    
+  @FXML
+    private Button UpdateOrder;    
+  @FXML
+    private Button DeleteOrder;    
+    
+@FXML
+    private TextField orderId;
+         @FXML
+    private TextField customername;     
+         @FXML
+    private TextField orderdetails;
+         @FXML
+    private TextField ordertotal;
+         @FXML
+    private TextField orderquantity;
+         @FXML
+    private TextField orderdate;
+         @FXML
+    private TextField orderOutlet;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -63,12 +88,14 @@ OrderItem itemToAdd = new OrderItem(new Long(1),"ammar","momsy stage 5", new Lon
 
             ObservableList<OrderItem> oblist = OrderItem.getAll();
 
-            oder_id.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().oder_id.toString()));
+            Orderid.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().oder_id.toString()));
             customer_name.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().customer_name));
             order_details.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().order_details));
             order_total.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().order_total.toString()));
             order_quantity.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().order_quantity.toString()));
             order_date.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().order_date));
+            orderoutletid.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().outletid.toString()));
+            
             ordertable.setItems(oblist);
         } catch (SQLException ex) {
             Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
@@ -81,4 +108,4 @@ OrderItem itemToAdd = new OrderItem(new Long(1),"ammar","momsy stage 5", new Lon
     }
 }
 
-    
+     

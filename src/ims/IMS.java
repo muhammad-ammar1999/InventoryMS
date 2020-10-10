@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  * @author bilal
  */
 public class IMS extends Application {
-    
+     
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));

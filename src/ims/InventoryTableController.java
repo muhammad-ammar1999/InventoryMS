@@ -26,6 +26,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 /**
  *
@@ -50,6 +52,31 @@ public class InventoryTableController implements Initializable {
     private TableColumn<InventoryItem, String> retail_price;
     @FXML
     private TableColumn<InventoryItem, String> date;
+ @FXML
+    private TableColumn<InventoryItem, String> outletid;
+    @FXML 
+    private Button AddInventory;    
+  @FXML
+    private Button UpdateInventory;    
+  @FXML
+    private Button DeleteInventory;    
+ 
+    @FXML
+    private TextField inventoryId;
+         @FXML
+    private TextField inventoryName;     
+         @FXML
+    private TextField inventoryDescription;
+         @FXML
+    private TextField inventoryQty;
+         @FXML
+    private TextField inventoryPurchase_price;
+         @FXML
+    private TextField inventoryRetail_price;
+         @FXML
+    private TextField inventoryDate;
+         @FXML
+    private TextField inventoryOutlet;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -57,8 +84,8 @@ public class InventoryTableController implements Initializable {
 InventoryItem itemToAdd = new InventoryItem(new Long(1),"momsy","stage4", new Long(11),100.0,200.0, "2021",new Long(2));  
  try {
             
-InventoryItem.addOne(itemToAdd);
-    InventoryItem.updateOne(itemToAdd);
+//InventoryItem.addOne(itemToAdd);
+  //  InventoryItem.updateOne(itemToAdd);
  System.out.println("ammar");
     
            ObservableList<InventoryItem> oblist = InventoryItem.getAll();
@@ -70,15 +97,37 @@ InventoryItem.addOne(itemToAdd);
             purchasing_price.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().purchasing_price.toString()));
             retail_price.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().retail_price.toString()));
             date.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().date));
-           table.setItems(oblist);
-        } catch (SQLException ex) {
-           Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+            outletid.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().outletid.toString()));
+ 
+            table.setItems(oblist);
+            
+//  void addInventoryButton(ActionEvent event){
+                
+//             InventoryItem item_ToAdd = new InventoryItem(Long.parseLong(id.getText()) , name.getText(),description.getText(),Long.parseLong(qty.getText()),Double.parseDouble(purchasing_price.getText()), Double.parseDouble(retail_price.getText()), date.getText(),Long.parseLong(outletid.getText()));
+//           item_ToAdd.addOne(item_ToAdd);
+// }
+//  void addInventoryButton(ActionEvent event){
+                
+//             InventoryItem item_ToAdd = new InventoryItem(Long.parseLong(id.getText()) , name.getText(),description.getText(),Long.parseLong(qty.getText()),Double.parseDouble(purchasing_price.getText()), Double.parseDouble(retail_price.getText()), date.getText(),Long.parseLong(outletid.getText()));
+//           item_ToAdd.updateOne(item_ToAdd);
+// }
+//  void addInventoryButton(ActionEvent event){
+                
+//             InventoryItem item_ToAdd = new InventoryItem(Long.parseLong(id.getText()) , name.getText(),description.getText(),Long.parseLong(qty.getText()),Double.parseDouble(purchasing_price.getText()), Double.parseDouble(retail_price.getText()), date.getText(),Long.parseLong(outletid.getText()));
+//           item_ToAdd.deleteOne(item_ToAdd);
+// }
+            
+            
+            
+  //      } catch (SQLException ex) {
+      //     Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+    //    } catch (ClassNotFoundException ex) {
+        //    Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
         }
          catch (Exception e) {
            System.out.println(e);
         }
        
-    }
+    }    
+
 }

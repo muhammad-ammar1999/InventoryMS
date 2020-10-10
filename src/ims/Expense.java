@@ -1,4 +1,3 @@
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,33 +17,27 @@ import javafx.collections.ObservableList;
  *
  * @author bilal
  */
-public class OrderItem {
-
-    Long oder_id;
-    String customer_name;
-    String order_details ;
-    Long order_total;
-    Long order_quantity ;
-    String order_date;
-    Long outletid;
-  OrderItem (Long oder_id, String customer_name, String order_details,Long order_total, Long  order_quantity , String order_date,Long outletid) {
-        this.oder_id= oder_id;
-        this.customer_name = customer_name;
-        this. order_details =  order_details;
-        this.order_total=order_total;
-        this.order_quantity  = order_quantity ;
-       this.order_date = order_date;
-this.outletid=outletid;    
-}
+public class Expense {
+    
+    Long expenseId;
+    String expenseDetails;
+     Double expensePrice;
+    String date;
+Long outletid;
+    Expense(Long id,  String expenseDetails,  Double expensePrice , String date,Long outletid) {
+        this.expenseId = id;
+        this.expenseDetails = expenseDetails;
+      this.expensePrice = expensePrice;
+        this.date = date;
+    this.outletid=outletid;    
+    }
  
 
-    OrderItem(ResultSet rs) throws SQLException, ClassNotFoundException {
-        this.oder_id = rs.getLong("id");
-        this.customer_name = rs.getString("customername");
-        this.order_details= rs.getString("orderdetails");
-        this.order_total = rs.getLong("ordertotal");
-       this.order_quantity = rs.getLong("quantity");
-        this.order_date = rs.getString("date");
+       Expense(ResultSet rs) throws SQLException, ClassNotFoundException {
+        this.expenseId = rs.getLong("id");
+        this.expenseDetails= rs.getString("expenseetails");
+        this.expensePrice = rs.getDouble("expenseprice");
+        this.date = rs.getString("date");
  this.outletid = rs.getLong("outletid");
     }
 
@@ -53,20 +46,20 @@ this.outletid=outletid;
      *
      * @return a list of object from class InventoryItem
      */
-    static ObservableList<OrderItem> getAll() {
+    static ObservableList<Expense> getAll() {
 
         // initialize an empty list that contains objects of class InventoryItem
-        ObservableList<OrderItem> oblist = FXCollections.observableArrayList();
+        ObservableList<Expense> oblist = FXCollections.observableArrayList();
         try {
             // execute query on the database
-            ResultSet rs = DbConnection.executeQuery("SELECT * FROM Orders;");
+            ResultSet rs = DbConnection.executeQuery("SELECT * FROM Expense ;");
 
             // iterate over every row that is returned from the executed
             // query above. next() method returns next row untill there are
             // no rows left
             while (rs.next()) {
                 // add InventoryItem object in the empty list we created above
-                oblist.add(new OrderItem(rs));
+                oblist.add(new Expense(rs));
             }
         } catch (Exception e) {
             System.err.println(e);
@@ -78,22 +71,22 @@ this.outletid=outletid;
 
     }
 
-    static OrderItem getOne(Long id) throws SQLException, ClassNotFoundException, NoSuchElementException {
+    static Expense getOne(Long id) throws SQLException, ClassNotFoundException, NoSuchElementException {
 
         // execute query on the database
-        ResultSet rs = DbConnection.executeQuery("SELECT * FROM Orders WHERE id=" + id);
+        ResultSet rs = DbConnection.executeQuery("SELECT * FROM Expense WHERE id=" + id);
         if (rs.first()) {
-            return new OrderItem(rs);
+            return new Expense(rs);
         } else {
             throw new NoSuchElementException();
         }
     }
 
-    static void updateOne(OrderItem item) throws SQLException, ClassNotFoundException {
+    static void updateOne(Expense item) throws SQLException, ClassNotFoundException {
    //     DbConnection.executeUpdate("UPDATE inventory " + " SET name='" + item.customer_name + " SET description='" + item.order_details+ " SET qty=" + item.qty+ " SET purchasing_price=" + item.purchasing_price+ " SET retail_price=" + item.retail_price+ " SET date='" + item.date+ " SET outletid=" + item. outletid+"WHERE id="+ item.id);
     }
-    
-    static void addOne(OrderItem item) throws SQLException, ClassNotFoundException {
+     
+    static void addOne(Expense item) throws SQLException, ClassNotFoundException {
  DbConnection.executeUpdate(" insert into Orders (customername,orderdetails,ordertotal,quantity,date, outletId)"
         + " values ('ammar','molfix5', 1000,1, '2001',1)");
     }
@@ -101,5 +94,5 @@ this.outletid=outletid;
     static void deleteOne(Long id) throws SQLException, ClassNotFoundException {
        // DbConnection.executeQuery("DELETE inventory WHERE id="+  );
     }
- 
+
 }
