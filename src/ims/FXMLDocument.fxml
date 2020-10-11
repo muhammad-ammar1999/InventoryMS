@@ -97,7 +97,7 @@
                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="275.0" prefWidth="615.0">
                            <children>
-                              <TableView fx:id="Ordertable" layoutX="5.0" prefHeight="292.0" prefWidth="631.0">
+                                <TableView fx:id="Ordertable" layoutX="5.0" prefHeight="292.0" prefWidth="631.0">
                                 <columns>
                                   <TableColumn fx:id="Orderid" prefWidth="75.0" text="Id" />
                                   <TableColumn fx:id="customer_name" prefWidth="145.0" text="CustomerName" />
@@ -152,19 +152,19 @@
                             </content>
                         </Tab>
                         <Tab text="Sale Report">
-                            <content>
+                             <content>
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <AnchorPane layoutX="4.0" layoutY="2.0" prefHeight="285.0" prefWidth="634.0">
                                  <children>
-                                    <TableView layoutY="-1.0" prefHeight="287.0" prefWidth="634.0">
+                                        <TableView fx:id="salestable" layoutY="-1.0" prefHeight="287.0" prefWidth="634.0">
                                       <columns>
                                         <TableColumn fx:id="sales_id" prefWidth="33.0" text="id" />
                                         <TableColumn fx:id="sales_date" prefWidth="45.0" text="date" />
                                           <TableColumn fx:id="total_sales" minWidth="4.0" prefWidth="51.0" text="TotalSale" />
                                           <TableColumn fx:id="total_purchases"  minWidth="0.0" prefWidth="136.0" text="TotalPurchasing" />
                                           <TableColumn fx:id="monthly_expenses" minWidth="0.0" prefWidth="90.0" text="MonthlyExpense" />
-                                          <TableColumn fx:id="totale_xpenses" minWidth="0.0" prefWidth="38.0" text="TotalExpense" />
+                                            <TableColumn fx:id="total_expenses" minWidth="0.0" prefWidth="38.0" text="TotalExpense" />
                                           <TableColumn fx:id="investment" minWidth="3.0" prefWidth="36.0" text="Innvestment" />
                                           <TableColumn fx:id="stock" prefWidth="36.0" text="Stocks" />
                                           <TableColumn fx:id="net_income" prefWidth="43.0" text="netincome" />
@@ -174,14 +174,14 @@
                                       </columns>
                                     </TableView>
                                   <Button fx:id="addSales_report" layoutX="399.0" layoutY="260.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" text="Add" />
-                                  <Button fx:id="updateSales_report" layoutX="499.0" layoutY="260.0" mnemonicParsing="false" text="Update" />
+                                    <Button fx:id="updateSales_report" layoutX="499.0" layoutY="260.0" mnemonicParsing="false" text="Update" />
                                     <Button fx:id="DeleteSales_report" layoutX="399.0" layoutY="260.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="87.0" text="Delete" />
       <TextField fx:id="salesid" layoutX="350" layoutY="250.0" />
       <TextField fx:id="salesdate" layoutX="450" layoutY="250.0" />
       <TextField  fx:id="totalsales" layoutX="560" layoutY="250.0" />
       <TextField  fx:id="totalpurchases" layoutX="660" layoutY="250.0" />
       <TextField fx:id="monthlyexpenses" layoutX="350" layoutY="250.0" />
-      <TextField fx:id="totalexpenses" layoutX="450" layoutY="250.0" />
+      <TextField fx:id="totalexpenses" layoutX="450" layoutY="250.0" /> 
       <TextField  fx:id="invest" layoutX="560" layoutY="250.0" />
       <TextField  fx:id="stocks" layoutX="660" layoutY="250.0" />
       <TextField fx:id="netincome" layoutX="350" layoutY="250.0" />
@@ -199,7 +199,7 @@
                                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <ChoiceBox fx:id="SelectOutlet" layoutX="58.0" layoutY="49.0" prefWidth="150.0" />
-                              <Button fx:id="addOutlet" layoutX="544.0" layoutY="252.0" mnemonicParsing="false" text="AddOutlet" />
+                                    <Button fx:id="addOutlet" layoutX="544.0" layoutY="252.0" mnemonicParsing="false" text="AddOutlet" />
 <TextField fx:id="outletId"  layoutX="100" layoutY="250.0" />
       <TextField fx:id="outletAddress" layoutX="350" layoutY="250.0" />
                            </children></AnchorPane>

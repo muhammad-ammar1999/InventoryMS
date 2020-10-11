@@ -18,7 +18,7 @@ import javafx.collections.ObservableList;
  *
  * @author bilal
  */
-public class InventoryItem {
+public class InventoryItem  {
 
     Long id;
     String name;
@@ -57,6 +57,7 @@ this.outletid=outletid;
      *
      * @return a list of object from class InventoryItem
      */
+ 
     static ObservableList<InventoryItem> getAll() {
 
         // initialize an empty list that contains objects of class InventoryItem
@@ -94,17 +95,17 @@ this.outletid=outletid;
     } 
 
     static void updateOne(InventoryItem item) throws SQLException, ClassNotFoundException {
-      //  DbConnection.executeQuery("UPDATE inventory WHERE id" + item.id + " SET name=" + item.name);
-    }
+        DbConnection.executeUpdate("UPDATE inventory SET name = 'momsy' where  id =" + item.id);
+    }       
     
     static void addOne(InventoryItem item) throws SQLException, ClassNotFoundException {
         DbConnection.executeUpdate(" insert into inventory (name,description,qty,purchasing_price,retail_price,date, outletId)"
-        + " values ('molfix','stage', 6,100.0,200.0, '2001',1)");
+        + " values ('canbaby','stage', 6,100.0,200.0, '2001',1)");
 
     }
     
     static void deleteOne(Long id) throws SQLException, ClassNotFoundException {
-        DbConnection.executeQuery("DELETE inventory WHERE" );
+        DbConnection.executeUpdate("DELETE from inventory WHERE id=" + id );
     }
-
+ 
 }

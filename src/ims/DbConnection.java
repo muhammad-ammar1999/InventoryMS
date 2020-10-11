@@ -35,7 +35,7 @@ public class DbConnection {
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         if (conn != null && !conn.isClosed()) {
             return conn;
-        }
+        } 
         connect();
         return conn;
 

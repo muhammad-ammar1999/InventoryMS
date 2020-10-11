@@ -28,15 +28,15 @@ Long outletid;
         this.expenseId = id;
         this.expenseDetails = expenseDetails;
       this.expensePrice = expensePrice;
-        this.date = date;
+         this.date = date;
     this.outletid=outletid;    
     }
  
 
        Expense(ResultSet rs) throws SQLException, ClassNotFoundException {
         this.expenseId = rs.getLong("id");
-        this.expenseDetails= rs.getString("expenseetails");
-        this.expensePrice = rs.getDouble("expenseprice");
+        this.expenseDetails= rs.getString("expensedetails");
+        this.expensePrice = rs.getDouble("price");
         this.date = rs.getString("date");
  this.outletid = rs.getLong("outletid");
     }
@@ -71,7 +71,8 @@ Long outletid;
 
     }
 
-    static Expense getOne(Long id) throws SQLException, ClassNotFoundException, NoSuchElementException {
+    
+     static Expense getOne(Long id) throws SQLException, ClassNotFoundException, NoSuchElementException {
 
         // execute query on the database
         ResultSet rs = DbConnection.executeQuery("SELECT * FROM Expense WHERE id=" + id);
@@ -80,19 +81,21 @@ Long outletid;
         } else {
             throw new NoSuchElementException();
         }
-    }
+    } 
 
     static void updateOne(Expense item) throws SQLException, ClassNotFoundException {
-   //     DbConnection.executeUpdate("UPDATE inventory " + " SET name='" + item.customer_name + " SET description='" + item.order_details+ " SET qty=" + item.qty+ " SET purchasing_price=" + item.purchasing_price+ " SET retail_price=" + item.retail_price+ " SET date='" + item.date+ " SET outletid=" + item. outletid+"WHERE id="+ item.id);
-    }
-     
-    static void addOne(Expense item) throws SQLException, ClassNotFoundException {
- DbConnection.executeUpdate(" insert into Orders (customername,orderdetails,ordertotal,quantity,date, outletId)"
-        + " values ('ammar','molfix5', 1000,1, '2001',1)");
-    }
+        DbConnection.executeUpdate("UPDATE Expense SET price = 15 where  id =" + item.expenseId);
+    }       
+    
+    static void addOne(Expense  item) throws SQLException, ClassNotFoundException {
+DbConnection.executeUpdate(" insert into Expense (expensedetails,price ,date , outletid )"
+        + " values ('tea',100, '2001',3)");
+
+
+    } 
     
     static void deleteOne(Long id) throws SQLException, ClassNotFoundException {
-       // DbConnection.executeQuery("DELETE inventory WHERE id="+  );
+        DbConnection.executeUpdate("DELETE from Expense WHERE id=" + id );
     }
 
 }

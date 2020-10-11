@@ -75,10 +75,19 @@ this.outletid=outletid;
         // returning the list. This list
         // now contains all the rows fetched from the database
         return oblist;
-
+ 
+    }
+    static void printOne(OrderItem item){
+            System.out.println(item.customer_name);
+    System.out.println(item.oder_id);
+    System.out.println(item.order_date);
+    System.out.println(item.order_details);
+    System.out.println(item.order_quantity);
+    System.out.println(item.order_total);
+    System.out.println(item.outletid);
     }
 
-    static OrderItem getOne(Long id) throws SQLException, ClassNotFoundException, NoSuchElementException {
+     static OrderItem getOne(Long id) throws SQLException, ClassNotFoundException, NoSuchElementException {
 
         // execute query on the database
         ResultSet rs = DbConnection.executeQuery("SELECT * FROM Orders WHERE id=" + id);
@@ -87,19 +96,21 @@ this.outletid=outletid;
         } else {
             throw new NoSuchElementException();
         }
-    }
+    } 
 
     static void updateOne(OrderItem item) throws SQLException, ClassNotFoundException {
-   //     DbConnection.executeUpdate("UPDATE inventory " + " SET name='" + item.customer_name + " SET description='" + item.order_details+ " SET qty=" + item.qty+ " SET purchasing_price=" + item.purchasing_price+ " SET retail_price=" + item.retail_price+ " SET date='" + item.date+ " SET outletid=" + item. outletid+"WHERE id="+ item.id);
-    }
+        DbConnection.executeUpdate("UPDATE Orders SET customername = 'bilal' where  id =" + item.oder_id);
+    }       
     
-    static void addOne(OrderItem item) throws SQLException, ClassNotFoundException {
- DbConnection.executeUpdate(" insert into Orders (customername,orderdetails,ordertotal,quantity,date, outletId)"
-        + " values ('ammar','molfix5', 1000,1, '2001',1)");
+    static void addOne(OrderItem  item) throws SQLException, ClassNotFoundException {
+DbConnection.executeUpdate(" insert into Orders (customername,orderdetails,ordertotal,quantity,date, outletId)"
+        + " values ('ammar','canbaby5', 1000,1, '2001',1)");
+
+
     }
     
     static void deleteOne(Long id) throws SQLException, ClassNotFoundException {
-       // DbConnection.executeQuery("DELETE inventory WHERE id="+  );
+        DbConnection.executeUpdate("DELETE from Orders WHERE id=" + id );
     }
  
 }
