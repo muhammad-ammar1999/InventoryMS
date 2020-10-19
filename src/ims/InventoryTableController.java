@@ -26,8 +26,13 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
 
 /**
  *
@@ -37,7 +42,6 @@ public class InventoryTableController implements Initializable {
 
     @FXML
     private TableView<InventoryItem> table;
-
     @FXML
     private TableColumn<InventoryItem, String> id;
     @FXML
@@ -60,8 +64,7 @@ public class InventoryTableController implements Initializable {
     private Button UpdateInventory;    
   @FXML
     private Button DeleteInventory;    
- 
-    @FXML
+  @FXML
     private TextField inventoryId;
          @FXML
     private TextField inventoryName;     
@@ -80,26 +83,22 @@ public class InventoryTableController implements Initializable {
 
     @FXML
     private TableView<Expense> expensetable;
-
-    @FXML
+  @FXML
     private TableColumn<Expense, String> expenseid;
     @FXML
     private TableColumn<Expense, String> expenseDetails;
     @FXML
     private TableColumn<Expense, String> expensePrice;
-    
     @FXML
     private TableColumn<Expense, String> expensDate;
-  
     @FXML
     private TableColumn<Expense, String> Expenseoutletid;
-@FXML
+    @FXML
     private Button AddExpense;    
   @FXML
     private Button UpdateExpense;    
   @FXML
     private Button DeleteExpense;    
-    
 @FXML
     private TextField ExpenseId;
          @FXML
@@ -110,7 +109,8 @@ public class InventoryTableController implements Initializable {
     private TextField Expensedate;
          @FXML
     private TextField ExpenseOutlet;
-   @FXML
+
+         @FXML
     private TableView<OrderItem> Ordertable;
 
     @FXML
@@ -121,11 +121,9 @@ public class InventoryTableController implements Initializable {
     private TableColumn<OrderItem, String> order_details;
     @FXML
     private TableColumn<OrderItem, String> order_total;
-    
     @FXML
     private TableColumn<OrderItem, String> order_quantity;
-  
-    @FXML
+  @FXML
     private TableColumn<OrderItem, String> order_date;
 @FXML
     private TableColumn<OrderItem, String> orderoutletid;
@@ -135,8 +133,7 @@ public class InventoryTableController implements Initializable {
     private Button UpdateOrder;    
   @FXML
     private Button DeleteOrder;    
-     
-@FXML
+  @FXML
     private TextField orderId;
          @FXML
     private TextField customername;     
@@ -151,7 +148,6 @@ public class InventoryTableController implements Initializable {
          @FXML
     private TextField orderOutlet;
 
-         
          @FXML
     private Button addOutlet;    
     
@@ -160,8 +156,10 @@ public class InventoryTableController implements Initializable {
          @FXML
     private TextField outletAddress;     
   @FXML
-    private TableView<SalesReport> salestable;
+    private ChoiceBox SelectOutlet;    
   
+         @FXML
+    private TableView<SalesReport> salestable;
     @FXML
     private TableColumn<SalesReport, String> sales_id;
     @FXML
@@ -170,7 +168,6 @@ public class InventoryTableController implements Initializable {
     private TableColumn<SalesReport, String> total_sales;
     @FXML
     private TableColumn<SalesReport, String> total_purchases;
-    
     @FXML
     private TableColumn<SalesReport, String> monthly_expenses;
   
@@ -194,7 +191,6 @@ public class InventoryTableController implements Initializable {
     private Button updateSales_report;    
   @FXML
     private Button DeleteSales_report;    
-    
 @FXML
     private TextField salesid;
          @FXML
@@ -229,14 +225,14 @@ public  void inventoryAttachColumn(){
             purchasing_price.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().purchasing_price.toString()));
             retail_price.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().retail_price.toString()));
             date.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().date));
-            outletid.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().outletid.toString()));
+            Expenseoutletid.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().outletid.toString()));
 }
 public  void expenseAttachColumn(){
            expenseid.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().expenseId.toString()));
             expenseDetails.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().expenseDetails));
             expensePrice.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().expensePrice.toString()));
             expensDate.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().date));
-            expenseid.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().outletid.toString()));
+            outletid.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().outletid.toString()));
  
 }
 public  void orderAttachColumn(){
@@ -269,22 +265,15 @@ public  void salesReportAttachColumn()
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-InventoryItem itemToAdd = new InventoryItem(new Long(62),"molfix","stage4", new Long(11),100.0,200.0, "2021",new Long(2));  
-OrderItem orderToAdd = new OrderItem(new Long(3),"ammar","momsy stage 5", new Long(1100),new Long(11), "2021",new Long(2));  
-SalesReport sales_ToAdd = new SalesReport(new Long(1),"10-10-20",1100.0, 100.0,100.0, 1100.0,100.0,10.0,1.0,5.0,1.0,new Long(3));  
-Expense expenseToAdd = new Expense(new Long(1),"Rent", 11000.0, "10-2020",new Long(2));  
-outlet outlet_ToAdd = new outlet(new Long(4),"discoBranch","discobakry");          
+
 try {
             
- System.out.println("inventory");
-    
+ 
            ObservableList<InventoryItem> oblist = InventoryItem.getAll();
-           System.out.println(itemToAdd.name);
             inventoryAttachColumn();
             table.setItems(oblist);
 
             ObservableList<Expense> ob_expenselist = Expense.getAll();
-           System.out.println(expenseToAdd.expenseDetails);
            expenseAttachColumn();
             expensetable.setItems(ob_expenselist);
                   
@@ -296,38 +285,70 @@ try {
             salesReportAttachColumn();  
             salestable.setItems(ob_salesReportlist);
           
-                     System.out.println(InventoryItem.getOne(new Long(1)).description);
-//   InventoryItem.addOne(itemToAdd);
-//InventoryItem.updateOne(itemToAdd);
- //InventoryItem.deleteOne(new Long(67));
-         
-  
-                      System.out.println(OrderItem.getOne(new Long(1)).customer_name);
+//               ObservableList<outlet> ob_outletlist = outlet.getAll();          
+//               ChoiceBox SelectOutlet = new ChoiceBox();
+//                for (int i = 0; i<= ob_outletlist.size();i++) 
+//                 SelectOutlet.getItems().add(""+ob_outletlist.get(i));
+//                  HBox hbox = new HBox(SelectOutlet);        
+
+System.out.println("invent to add");
+//            
+// InventoryItem itemToAdd = new InventoryItem(Long.parseLong(inventoryId.getText()),inventoryName.toString(),inventoryDescription.toString(), Long.parseLong(inventoryQty.getText()),Double.parseDouble(inventoryPurchase_price.getText()),Double.parseDouble(inventoryRetail_price.getText()),inventoryDate.toString(),Long.parseLong(inventoryOutlet.getText()));  
+// AddInventory.setOnAction(e -> {
+//               try {
+//                   InventoryItem.addOne(itemToAdd);
+//               } catch (SQLException ex) {
+//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+//               } catch (ClassNotFoundException ex) {
+//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+//               }
+//           });
+//UpdateInventory.setOnAction(e -> {
+//               try {
+//                   InventoryItem.updateOne(itemToAdd);
+//               } catch (SQLException ex) {
+//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+//               } catch (ClassNotFoundException ex) {
+//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+//               }
+//           });
+// 
+//DeleteInventory.setOnAction(e ->  {
+//               try {
+//                   InventoryItem.deleteOne(Long.parseLong(inventoryId.getText()));
+//               } catch (SQLException ex) {
+//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+//               } catch (ClassNotFoundException ex) {
+//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+//               }
+//           });
+//  
+OrderItem orderToAdd = new OrderItem(new Long(1),"ammar","momsy stage 5", new Long(1100),new Long(11), "2021",new Long(2));  
 // OrderItem.addOne(orderToAdd);
- // OrderItem.updateOne(orderToAdd);
-//OrderItem.deleteOne(new Long(3));
-         
-  
-                      System.out.println(Expense.getOne(new Long(1)).expenseDetails);
-//Expense.addOne(expenseToAdd);
-// Expense.updateOne(expenseToAdd);
+//  OrderItem.updateOne(orderToAdd);
+//OrderItem.deleteOne(new Long(2));
+ 
+Expense expenseToAdd = new Expense(new Long(5),"petrol", 17700.0, "10",new Long(2));  
+Expense.addOne(expenseToAdd);
+System.out.println("expense to add");
+ //Expense.updateOne(expenseToAdd);
 //Expense.deleteOne(new Long(3));
-                     System.out.println(SalesReport.getOne(new Long(1)).monthlyExpense);
+
+SalesReport sales_ToAdd = new SalesReport(new Long(1),"10-10-20",1100.0, 100.0,100.0, 1100.0,100.0,10.0,1.0,5.0,1.0,new Long(3));  
 //SalesReport.addOne(sales_ToAdd);
 //SalesReport.updateOne(sales_ToAdd);
 //SalesReport.deleteOne(new Long(3));
  
-                                        System.out.println(outlet.getOne(new Long(1)).address);
+outlet outlet_ToAdd = new outlet(new Long(4),"discoBranch","discobakry");          
 //outlet.addOne(outlet_ToAdd);
 //outlet.updateOne(outlet_ToAdd);
 //outlet.deleteOne(new Long(4));
- 
-                                
-       }
+        
+
+} 
          catch (Exception e) {
            System.err.println(e.getMessage());
         }
-       
     }    
 
 }

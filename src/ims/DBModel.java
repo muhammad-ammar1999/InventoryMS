@@ -9,16 +9,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import javafx.collections.ObservableList;
 
-/**
+/** 
  * 
  * @author bilal
  * @param <T>
- * T = Order
+ *
  */
-public interface DBModel<T> { 
+
+ interface DBModel<T> { 
     ObservableList<T> getAll();
      T getOne(Long id);
-    void addOne(T item);
-    void deleteOne(Long id) throws SQLException;
-    void updateOne(T item);
+    void  addOne(T item);
+   void deleteOne(Long id) throws SQLException;
+  void updateOne(T item);
 }

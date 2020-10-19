@@ -18,7 +18,7 @@ import javafx.collections.ObservableList;
  */ 
 public class outlet {
 
-
+ 
     Long id;
     String name;
     String address;
@@ -37,11 +37,11 @@ public class outlet {
        }
     /**
      * Gets all rows from inventory table
-     * @return a list of object from class InventoryItem
+     * @return a list of object from class outlet
      */
     static ObservableList<outlet> getAll() {
 
-        // initialize an empty list that contains objects of class InventoryItem
+        // initialize an empty list that contains objects of class outlet
         ObservableList<outlet> oblist = FXCollections.observableArrayList();
         try {
             // execute query on the database
@@ -73,13 +73,13 @@ public class outlet {
     } 
 
     static void updateOne(outlet item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("UPDATE outlet SET address = malir15 where  id =" + item.id);
+        DbConnection.executeUpdate("UPDATE outlet SET address = "+item.address+" where  id =" + item.id);
     }       
     
             
    static void addOne(outlet item) throws SQLException, ClassNotFoundException {
  DbConnection.executeUpdate(" insert into outlet (address)"
-        + " values ('nagan13d')");
+        + " values (''"+item.address+")");
     }
     
     static void deleteOne(Long id) throws SQLException, ClassNotFoundException {

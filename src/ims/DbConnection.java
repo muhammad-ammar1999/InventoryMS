@@ -17,7 +17,7 @@ import java.sql.SQLException;
 public class DbConnection {
 
     private static Connection conn;
-    private static String url = "jdbc:mysql://localhost:3306/ShopMS?zeroDateTimeBehavior=convertToNull"; //veritabanımın adı java
+    private static String url = "jdbc:mysql://localhost:3306/ShopMS?zeroDateTimeBehavior=convertToNull";
     private static String user = "root";
     private static String pass = "";
 
@@ -39,7 +39,7 @@ public class DbConnection {
         connect();
         return conn;
 
-    }
+    } 
 
     public static ResultSet executeQuery(String query) throws SQLException, ClassNotFoundException {
         Connection c = getConnection();

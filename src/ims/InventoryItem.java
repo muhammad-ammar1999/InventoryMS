@@ -13,12 +13,12 @@ import java.util.NoSuchElementException;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+ 
 /**
  *
  * @author bilal
  */
-public class InventoryItem  {
+public class InventoryItem   {
 
     Long id;
     String name;
@@ -95,16 +95,19 @@ this.outletid=outletid;
     } 
 
     static void updateOne(InventoryItem item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("UPDATE inventory SET name = 'momsy' where  id =" + item.id);
+              // execute query on the database
+        DbConnection.executeUpdate("UPDATE inventory SET name = ''"+item.name+" WHERE  id =62");
     }       
     
     static void addOne(InventoryItem item) throws SQLException, ClassNotFoundException {
+               // execute query on the database
         DbConnection.executeUpdate(" insert into inventory (name,description,qty,purchasing_price,retail_price,date, outletId)"
-        + " values ('canbaby','stage', 6,100.0,200.0, '2001',1)");
+        + " values ('royal ','stage4', 6,630.0,200.0, '10',2)");
 
     }
     
     static void deleteOne(Long id) throws SQLException, ClassNotFoundException {
+               // execute query on the database
         DbConnection.executeUpdate("DELETE from inventory WHERE id=" + id );
     }
  

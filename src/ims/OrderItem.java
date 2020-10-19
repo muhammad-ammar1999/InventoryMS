@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+ 
 /**
  *
  * @author bilal
@@ -55,7 +55,7 @@ this.outletid=outletid;
      */
     static ObservableList<OrderItem> getAll() {
 
-        // initialize an empty list that contains objects of class InventoryItem
+        // initialize an empty list that contains objects of class OrderItem
         ObservableList<OrderItem> oblist = FXCollections.observableArrayList();
         try {
             // execute query on the database
@@ -99,12 +99,14 @@ this.outletid=outletid;
     } 
 
     static void updateOne(OrderItem item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("UPDATE Orders SET customername = 'bilal' where  id =" + item.oder_id);
+        // execute query on the database
+        DbConnection.executeUpdate("UPDATE Orders SET customername = ''"+item.customer_name+" where  id =" + item.oder_id);
     }       
     
     static void addOne(OrderItem  item) throws SQLException, ClassNotFoundException {
-DbConnection.executeUpdate(" insert into Orders (customername,orderdetails,ordertotal,quantity,date, outletId)"
-        + " values ('ammar','canbaby5', 1000,1, '2001',1)");
+ // execute query on the database
+        DbConnection.executeUpdate(" insert into Orders (customername,orderdetails,ordertotal,quantity,date, outletId)"
+        + " values (''"+item.customer_name+",''"+item.order_details+","+item.order_total+","+item.order_quantity+", ''"+item.order_date+","+item.outletid+")");
 
 
     }

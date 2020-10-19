@@ -47,8 +47,8 @@ Long outletid;
      * @return a list of object from class InventoryItem
      */
     static ObservableList<Expense> getAll() {
-
-        // initialize an empty list that contains objects of class InventoryItem
+ 
+        // initialize an empty list that contains objects of class Expense
         ObservableList<Expense> oblist = FXCollections.observableArrayList();
         try {
             // execute query on the database
@@ -58,7 +58,7 @@ Long outletid;
             // query above. next() method returns next row untill there are
             // no rows left
             while (rs.next()) {
-                // add InventoryItem object in the empty list we created above
+                // add Expense object in the empty list we created above
                 oblist.add(new Expense(rs));
             }
         } catch (Exception e) {
@@ -84,17 +84,23 @@ Long outletid;
     } 
 
     static void updateOne(Expense item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("UPDATE Expense SET price = 15 where  id =" + item.expenseId);
+             // execute query on the database
+        DbConnection.executeUpdate("UPDATE Expense SET price ="+ item.expensePrice+ " where  id =" + item.expenseId);
     }       
     
     static void addOne(Expense  item) throws SQLException, ClassNotFoundException {
-DbConnection.executeUpdate(" insert into Expense (expensedetails,price ,date , outletid )"
-        + " values ('tea',100, '2001',3)");
+      // execute query on the database
+System.out.println(" insert into Expense (expensedetails,price ,date , outletid )"
+        + " values (''"+ item.expenseDetails+","+item.expensePrice+","+item.date+","+item.outletid+")");
 
+               DbConnection.executeUpdate(" insert into Expense (expensedetails,price ,date , outletid )"
+        + " values ('{0}'"+ item.expenseDetails+","+item.expensePrice+","+item.date+","+item.outletid+")");
 
+       
     } 
     
     static void deleteOne(Long id) throws SQLException, ClassNotFoundException {
+              // execute query on the database
         DbConnection.executeUpdate("DELETE from Expense WHERE id=" + id );
     }
 

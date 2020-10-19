@@ -14,7 +14,7 @@ import javafx.collections.ObservableList;
  */
 public class SalesReport {
 
- 
+  
     Long id;
     String date;
     Double totalSale;
@@ -66,7 +66,7 @@ public class SalesReport {
      */
     static ObservableList<SalesReport> getAll() {
 
-        // initialize an empty list that contains objects of class InventoryItem
+        // initialize an empty list that contains objects of class SalesReport
         ObservableList<SalesReport> oblist = FXCollections.observableArrayList();
         try {
             // execute query on the database
@@ -76,7 +76,7 @@ public class SalesReport {
             // query above. next() method returns next row untill there are
             // no rows left
             while (rs.next()) {
-                // add InventoryItem object in the empty list we created above
+                // add SalesReport object in the empty list we created above
                 oblist.add(new SalesReport(rs));
             }
         } catch (Exception e) {
@@ -102,15 +102,12 @@ public class SalesReport {
     } 
 
     static void updateOne(SalesReport item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("UPDATE SalesReport SET netincome = 1200 where  id =" + item.id);
+        DbConnection.executeUpdate("UPDATE SalesReport SET netincome = "+item.netIncome+" where  id =" + item.id);
     }       
     
     static void addOne(SalesReport item) throws SQLException, ClassNotFoundException {
           DbConnection.executeUpdate(" insert into SalesReport (date,totalsale,totalpurchasing,monthlyexpenses,totalexpenses,investment,stocks,netincome,profitratio,account,outletid)"
         + " values ('10-10-20', 1100, 1100, 1100, 1100, 110, 110, 1100, 1100, 1100, 3)");
-
-        
-
  
     }
     
