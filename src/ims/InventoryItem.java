@@ -48,7 +48,8 @@ this.outletid=outletid;
         this.purchasing_price = rs.getDouble("purchasing_price");
         this.retail_price = rs.getDouble("purchasing_price");
         this.date = rs.getString("date");
-       this.outletid = rs.getLong("outletid");
+       this.outletid = rs.getLong("outlet_id");
+
 
     }
 
@@ -64,7 +65,7 @@ this.outletid=outletid;
         ObservableList<InventoryItem> oblist = FXCollections.observableArrayList();
         try {
             // execute query on the database
-            ResultSet rs = DbConnection.executeQuery("SELECT * FROM inventory;");
+            ResultSet rs = DbConnection.executeQuery("SELECT * FROM Inventory;");
 
             // iterate over every row that is returned from the executed
             // query above. next() method returns next row untill there are
@@ -86,7 +87,7 @@ this.outletid=outletid;
     static InventoryItem getOne(Long id) throws SQLException, ClassNotFoundException, NoSuchElementException {
 
         // execute query on the database
-        ResultSet rs = DbConnection.executeQuery("SELECT * FROM inventory WHERE id=" + id);
+        ResultSet rs = DbConnection.executeQuery("SELECT * FROM Inventory WHERE id=" + id);
         if (rs.first()) {
             return new InventoryItem(rs);
         } else {
@@ -95,17 +96,17 @@ this.outletid=outletid;
     } 
 
     static void updateOne(InventoryItem item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("UPDATE inventory SET name = 'momsy' where  id =" + item.id);
+        DbConnection.executeUpdate("UPDATE Inventory SET name = 'momsy' where  id =" + item.id);
     }       
     
     static void addOne(InventoryItem item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate(" insert into inventory (name,description,qty,purchasing_price,retail_price,date, outletId)"
-        + " values ('canbaby','stage', 6,100.0,200.0, '2001',1)");
+        DbConnection.executeUpdate(" insert into Inventory (name,description,qty,purchasing_price,retail_price,date, outlet_id)"
+        + " values ('onli','stage', 7,200.0,200.0, '2001',1)");
 
     }
     
     static void deleteOne(Long id) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("DELETE from inventory WHERE id=" + id );
+        DbConnection.executeUpdate("DELETE from Inventory WHERE id=" + id );
     }
  
 }

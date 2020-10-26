@@ -34,12 +34,12 @@ Long outletid;
  
 
        Expense(ResultSet rs) throws SQLException, ClassNotFoundException {
-        this.expenseId = rs.getLong("id");
-        this.expenseDetails= rs.getString("expensedetails");
+ this.expenseId = rs.getLong("id");
+        this.expenseDetails= rs.getString("expense_details");
         this.expensePrice = rs.getDouble("price");
         this.date = rs.getString("date");
- this.outletid = rs.getLong("outletid");
-    }
+ this.outletid = rs.getLong("outlet_id");
+       }
 
     /**
      * Gets all rows from inventory table
@@ -88,7 +88,7 @@ Long outletid;
     }       
     
     static void addOne(Expense  item) throws SQLException, ClassNotFoundException {
-DbConnection.executeUpdate(" insert into Expense (expensedetails,price ,date , outletid )"
+DbConnection.executeUpdate(" insert into Expense (expense_details,price ,date , outlet_id )"
         + " values ('tea',100, '2001',3)");
 
 

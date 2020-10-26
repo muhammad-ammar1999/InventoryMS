@@ -44,18 +44,18 @@ public class SalesReport {
     }
  
     SalesReport(ResultSet rs) throws SQLException, ClassNotFoundException {
-        this.id = rs.getLong("id");
+      this.id = rs.getLong("id");
         this.date   = rs.getString("date");
-        this.totalSale = rs.getDouble("totalsale");
-        this.totalPurchase = rs.getDouble("totalpurchasing");
-       this.monthlyExpense =rs.getDouble("monthlyexpenses");
-        this.totalExpense =rs.getDouble("totalexpenses");
+        this.totalSale = rs.getDouble("total_sale");
+        this.totalPurchase = rs.getDouble("total_purchasing");
+       this.monthlyExpense =rs.getDouble("monthly_expenses");
+        this.totalExpense =rs.getDouble("total_expenses");
         this.investment =rs.getDouble("investment");       
         this.stocks =rs.getDouble("stocks");
-        this.netIncome = rs.getDouble("netincome"); 
-        this.profitRatio=rs.getDouble("profitratio");
+        this.netIncome = rs.getDouble("net_income"); 
+        this.profitRatio=rs.getDouble("profit_ratio");
         this.account=rs.getDouble("account");
-        this.outletid = rs.getLong("outletid");
+        this.outletid = rs.getLong("outlet_id");
 
     }
 
@@ -102,11 +102,11 @@ public class SalesReport {
     } 
 
     static void updateOne(SalesReport item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("UPDATE SalesReport SET netincome = 1200 where  id =" + item.id);
+        DbConnection.executeUpdate("UPDATE SalesReport SET net_income = 1200 where  id =" + item.id);
     }       
     
     static void addOne(SalesReport item) throws SQLException, ClassNotFoundException {
-          DbConnection.executeUpdate(" insert into SalesReport (date,totalsale,totalpurchasing,monthlyexpenses,totalexpenses,investment,stocks,netincome,profitratio,account,outletid)"
+          DbConnection.executeUpdate(" insert into SalesReport (date,total_sale,total_purchasing,monthly_expenses,total_expenses,investment,stocks,net_income,profit_ratio,account,outlet_id)"
         + " values ('10-10-20', 1100, 1100, 1100, 1100, 110, 110, 1100, 1100, 1100, 3)");
 
         

@@ -39,13 +39,13 @@ this.outletid=outletid;
  
 
     OrderItem(ResultSet rs) throws SQLException, ClassNotFoundException {
-        this.oder_id = rs.getLong("id");
-        this.customer_name = rs.getString("customername");
-        this.order_details= rs.getString("orderdetails");
-        this.order_total = rs.getLong("ordertotal");
+ this.oder_id = rs.getLong("id");
+        this.customer_name = rs.getString("customer_name");
+        this.order_details= rs.getString("order_details");
        this.order_quantity = rs.getLong("quantity");
+        this.order_total = rs.getLong("order_total");
         this.order_date = rs.getString("date");
- this.outletid = rs.getLong("outletid");
+ this.outletid = rs.getLong("outlet_id");
     }
 
     /**
@@ -99,11 +99,11 @@ this.outletid=outletid;
     } 
 
     static void updateOne(OrderItem item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("UPDATE Orders SET customername = 'bilal' where  id =" + item.oder_id);
+        DbConnection.executeUpdate("UPDATE Orders SET custome_rname = 'bilal' where  id =" + item.oder_id);
     }       
     
     static void addOne(OrderItem  item) throws SQLException, ClassNotFoundException {
-DbConnection.executeUpdate(" insert into Orders (customername,orderdetails,ordertotal,quantity,date, outletId)"
+DbConnection.executeUpdate(" insert into Orders (customer_name,order_details,order_total,quantity,date, outlet_id)"
         + " values ('ammar','canbaby5', 1000,1, '2001',1)");
 
 

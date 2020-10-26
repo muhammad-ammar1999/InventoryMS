@@ -236,7 +236,7 @@ public  void expenseAttachColumn(){
             expenseDetails.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().expenseDetails));
             expensePrice.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().expensePrice.toString()));
             expensDate.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().date));
-            expenseid.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().outletid.toString()));
+            Expenseoutletid.setCellValueFactory(c -> new SimpleStringProperty(c.getValue().outletid.toString()));
  
 }
 public  void orderAttachColumn(){
@@ -269,7 +269,7 @@ public  void salesReportAttachColumn()
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-InventoryItem itemToAdd = new InventoryItem(new Long(62),"molfix","stage4", new Long(11),100.0,200.0, "2021",new Long(2));  
+InventoryItem itemToAdd = new InventoryItem(new Long(69),"molfix","stage4", new Long(11),100.0,200.0, "2021",new Long(2));  
 OrderItem orderToAdd = new OrderItem(new Long(3),"ammar","momsy stage 5", new Long(1100),new Long(11), "2021",new Long(2));  
 SalesReport sales_ToAdd = new SalesReport(new Long(1),"10-10-20",1100.0, 100.0,100.0, 1100.0,100.0,10.0,1.0,5.0,1.0,new Long(3));  
 Expense expenseToAdd = new Expense(new Long(1),"Rent", 11000.0, "10-2020",new Long(2));  
@@ -297,9 +297,9 @@ try {
             salestable.setItems(ob_salesReportlist);
           
                      System.out.println(InventoryItem.getOne(new Long(1)).description);
-//   InventoryItem.addOne(itemToAdd);
+   InventoryItem.addOne(itemToAdd);
 //InventoryItem.updateOne(itemToAdd);
- //InventoryItem.deleteOne(new Long(67));
+ InventoryItem.deleteOne(new Long(69));
          
   
                       System.out.println(OrderItem.getOne(new Long(1)).customer_name);

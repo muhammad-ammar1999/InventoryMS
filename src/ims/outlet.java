@@ -32,7 +32,7 @@ public class outlet {
        
   outlet(ResultSet rs) throws SQLException, ClassNotFoundException {
         this.id = rs.getLong("id");
-      //  this.name = rs.getString("name");
+        this.name = rs.getString("name");
         this.address= rs.getString("address");
        }
     /**
@@ -45,7 +45,7 @@ public class outlet {
         ObservableList<outlet> oblist = FXCollections.observableArrayList();
         try {
             // execute query on the database
-            ResultSet rs = DbConnection.executeQuery("SELECT * FROM outlet;");
+            ResultSet rs = DbConnection.executeQuery("SELECT * FROM Outlet;");
 
             // iterate over every row that is returned from the executed
             // query above. next() method returns next row untill there are
@@ -64,7 +64,7 @@ public class outlet {
         static outlet getOne(Long id) throws SQLException, ClassNotFoundException, NoSuchElementException {
 
         // execute query on the database
-        ResultSet rs = DbConnection.executeQuery("SELECT * FROM outlet WHERE id=" + id);
+        ResultSet rs = DbConnection.executeQuery("SELECT * FROM Outlet WHERE id=" + id);
         if (rs.first()) {
             return new outlet(rs);
         } else {
@@ -73,16 +73,16 @@ public class outlet {
     } 
 
     static void updateOne(outlet item) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("UPDATE outlet SET address = malir15 where  id =" + item.id);
+        DbConnection.executeUpdate("UPDATE Outlet SET address = malir15 where  id =" + item.id);
     }       
     
             
    static void addOne(outlet item) throws SQLException, ClassNotFoundException {
- DbConnection.executeUpdate(" insert into outlet (address)"
+ DbConnection.executeUpdate(" insert into Outlet (address)"
         + " values ('nagan13d')");
     }
     
     static void deleteOne(Long id) throws SQLException, ClassNotFoundException {
-        DbConnection.executeUpdate("DELETE from outlet WHERE id=" + id );
+        DbConnection.executeUpdate("DELETE from Outlet WHERE id=" + id );
     }
 }
