@@ -32,7 +32,7 @@ public class outlet {
        
   outlet(ResultSet rs) throws SQLException, ClassNotFoundException {
         this.id = rs.getLong("id");
-      //  this.name = rs.getString("name");
+      this.name = rs.getString("name");
         this.address= rs.getString("address");
        }
     /**

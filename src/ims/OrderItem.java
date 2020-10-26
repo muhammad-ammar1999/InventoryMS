@@ -40,13 +40,13 @@ this.outletid=outletid;
 
     OrderItem(ResultSet rs) throws SQLException, ClassNotFoundException {
         this.oder_id = rs.getLong("id");
-        this.customer_name = rs.getString("customername");
-        this.order_details= rs.getString("orderdetails");
-        this.order_total = rs.getLong("ordertotal");
+        this.customer_name = rs.getString("customer_name");
+        this.order_details= rs.getString("order_details");
        this.order_quantity = rs.getLong("quantity");
+        this.order_total = rs.getLong("order_total");
         this.order_date = rs.getString("date");
- this.outletid = rs.getLong("outletid");
-    }
+ this.outletid = rs.getLong("outlet_id");
+     }
 
     /**
      * Gets all rows from inventory table
@@ -100,12 +100,12 @@ this.outletid=outletid;
 
     static void updateOne(OrderItem item) throws SQLException, ClassNotFoundException {
         // execute query on the database
-        DbConnection.executeUpdate("UPDATE Orders SET customername = ''"+item.customer_name+" where  id =" + item.oder_id);
+        DbConnection.executeUpdate("UPDATE Orders SET custome_rname = ''"+item.customer_name+" where  id =" + item.oder_id);
     }       
     
     static void addOne(OrderItem  item) throws SQLException, ClassNotFoundException {
  // execute query on the database
-        DbConnection.executeUpdate(" insert into Orders (customername,orderdetails,ordertotal,quantity,date, outletId)"
+        DbConnection.executeUpdate(" insert into Orders (customer_name,order_details,order_total,quantity,date, outlet_id)"
         + " values (''"+item.customer_name+",''"+item.order_details+","+item.order_total+","+item.order_quantity+", ''"+item.order_date+","+item.outletid+")");
 
 

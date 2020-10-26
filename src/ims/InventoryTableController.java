@@ -285,44 +285,44 @@ try {
             salesReportAttachColumn();  
             salestable.setItems(ob_salesReportlist);
           
-//               ObservableList<outlet> ob_outletlist = outlet.getAll();          
-//               ChoiceBox SelectOutlet = new ChoiceBox();
-//                for (int i = 0; i<= ob_outletlist.size();i++) 
-//                 SelectOutlet.getItems().add(""+ob_outletlist.get(i));
-//                  HBox hbox = new HBox(SelectOutlet);        
+               ObservableList<outlet> ob_outletlist = outlet.getAll();          
+               ChoiceBox SelectOutlet = new ChoiceBox();
+                for (int i = 0; i<= ob_outletlist.size();i++) 
+                 SelectOutlet.getItems().add(""+ob_outletlist.get(i));
+                  HBox hbox = new HBox(SelectOutlet);        
 
 System.out.println("invent to add");
-//            
-// InventoryItem itemToAdd = new InventoryItem(Long.parseLong(inventoryId.getText()),inventoryName.toString(),inventoryDescription.toString(), Long.parseLong(inventoryQty.getText()),Double.parseDouble(inventoryPurchase_price.getText()),Double.parseDouble(inventoryRetail_price.getText()),inventoryDate.toString(),Long.parseLong(inventoryOutlet.getText()));  
-// AddInventory.setOnAction(e -> {
-//               try {
-//                   InventoryItem.addOne(itemToAdd);
-//               } catch (SQLException ex) {
-//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
-//               } catch (ClassNotFoundException ex) {
-//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
-//               }
-//           });
-//UpdateInventory.setOnAction(e -> {
-//               try {
-//                   InventoryItem.updateOne(itemToAdd);
-//               } catch (SQLException ex) {
-//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
-//               } catch (ClassNotFoundException ex) {
-//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
-//               }
-//           });
-// 
-//DeleteInventory.setOnAction(e ->  {
-//               try {
-//                   InventoryItem.deleteOne(Long.parseLong(inventoryId.getText()));
-//               } catch (SQLException ex) {
-//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
-//               } catch (ClassNotFoundException ex) {
-//                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
-//               }
-//           });
-//  
+            
+ InventoryItem itemToAdd = new InventoryItem(Long.parseLong(inventoryId.getText()),inventoryName.toString(),inventoryDescription.toString(), Long.parseLong(inventoryQty.getText()),Double.parseDouble(inventoryPurchase_price.getText()),Double.parseDouble(inventoryRetail_price.getText()),inventoryDate.toString(),Long.parseLong(inventoryOutlet.getText()));  
+ AddInventory.setOnAction(e -> {
+               try {
+                   InventoryItem.addOne(itemToAdd);
+               } catch (SQLException ex) {
+                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+               } catch (ClassNotFoundException ex) {
+                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           });
+UpdateInventory.setOnAction(e -> {
+               try {
+                   InventoryItem.updateOne(itemToAdd);
+               } catch (SQLException ex) {
+                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+               } catch (ClassNotFoundException ex) {
+                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           });
+ 
+DeleteInventory.setOnAction(e ->  {
+               try {
+                   InventoryItem.deleteOne(Long.parseLong(inventoryId.getText()));
+               } catch (SQLException ex) {
+                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+               } catch (ClassNotFoundException ex) {
+                   Logger.getLogger(InventoryTableController.class.getName()).log(Level.SEVERE, null, ex);
+               }
+           });
+  
 OrderItem orderToAdd = new OrderItem(new Long(1),"ammar","momsy stage 5", new Long(1100),new Long(11), "2021",new Long(2));  
 // OrderItem.addOne(orderToAdd);
 //  OrderItem.updateOne(orderToAdd);
@@ -351,4 +351,4 @@ outlet outlet_ToAdd = new outlet(new Long(4),"discoBranch","discobakry");
         }
     }    
 
-}
+} 

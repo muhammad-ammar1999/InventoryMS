@@ -35,16 +35,16 @@ Long outletid;
 
        Expense(ResultSet rs) throws SQLException, ClassNotFoundException {
         this.expenseId = rs.getLong("id");
-        this.expenseDetails= rs.getString("expensedetails");
+        this.expenseDetails= rs.getString("expense_details");
         this.expensePrice = rs.getDouble("price");
         this.date = rs.getString("date");
- this.outletid = rs.getLong("outletid");
+ this.outletid = rs.getLong("outlet_id");
     }
 
     /**
-     * Gets all rows from inventory table
-     *
-     * @return a list of object from class InventoryItem
+     * Gets all rows from Expense table 
+     *'
+     * @return a list of object from class Expense
      */
     static ObservableList<Expense> getAll() {
  
